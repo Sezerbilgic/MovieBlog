@@ -1,0 +1,128 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  max-height: 100px;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.header .header-site {
+  max-width: 310px;
+  max-height: 80px;
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
+}
+.header .header-site .header-logo {
+  width: 40px;
+  height: 45px;
+}
+.header .header-site h3 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 17px;
+  line-height: 30px;
+  letter-spacing: 0.25em;
+  color: #ffffff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.header .header-site h3 span {
+  color: #a10000;
+}
+
+.header .nav-link {
+  margin-right: 70px;
+}
+.header .nav-link ul {
+  color: white;
+  list-style-type: none;
+  display: flex;
+}
+.header .nav-link ul li {
+  margin-right: 100px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 30px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.container {
+  width: 100%;
+  height: 750px;
+  background-size: cover;
+}
+.container .overlay {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgb(0, 0, 0.98) 75%
+  );
+  opacity: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.container .overlay .movie-info {
+  position: absolute;
+  top: 100px;
+  color: white;
+  font-family: poppins;
+  left: 100px;
+  min-height: 500px;
+  max-width: 600px;
+}
+.container .overlay .movie-info h2 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 75px;
+  margin-bottom: 50px;
+}
+.container .overlay .movie-info p {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 50px;
+}
+.button {
+  width: 170px;
+  height: 50px;
+  background: linear-gradient(180deg, #e10000 0%, #a10000 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  cursor: pointer;
+}
+.button span {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 30px;
+}
+.container .overlay .movie-card-wrap {
+  margin-right: 170px;
+  width: 350px;
+  height: 550px;
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
+  border-radius: 25px;
+  background-size: cover;
+}

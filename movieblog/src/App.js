@@ -1,21 +1,14 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getMovies } from "./redux/actions/actions";
+import Navbar from "./components/headers/navbar";
+import "./css/app.css";
+import Home from "./components/Home";
 
-function App() {
-  const movies = useSelector((state) => state);
-  const [sending, setSending] = useState(false);
-  const dispatch = useDispatch();
-  let send = 0;
-  useEffect(() => {
-    if (send === 0) {
-      dispatch(getMovies({ key: "movie/popular" }));
-    }
-  }, send);
-
+const App = () => {
   return (
-    <div className="App"> {/* <p onClick={handleClick()}>Yazı</p> */}</div>
+    <div>
+      <Navbar />
+      <Home />
+    </div>
   );
-}
+};
 
 export default App;

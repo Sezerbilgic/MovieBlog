@@ -1,5 +1,3 @@
-import axios from "axios";
-import create from "../../apiConfig/create";
 import Proxy from "../../apiConfig/Proxy";
 import { ActionTypes } from "./action-types";
 
@@ -10,8 +8,8 @@ export const getMovies = (payload, type) => {
         .get(payload)
         .then((response) => {
           dispatch({
-            type: ActionTypes.GET_POPULAR,
-            payload: { language: "tr-TR" },
+            type: ActionTypes[type],
+            payload: response.results,
           });
           resolve(response);
         })
@@ -20,3 +18,21 @@ export const getMovies = (payload, type) => {
         });
     });
 };
+
+export const getTrendMovie = (payload,type) => {
+  return (dispatch) =>
+    new Promise((resolve, reject) => {
+      return new Proxy()
+        .get(payload)
+        .then((response) => {
+          dispatch({
+            type: ActionTypes[type],
+            payload: response,
+          });
+          resolve(response);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+}

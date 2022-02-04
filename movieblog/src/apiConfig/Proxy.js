@@ -3,6 +3,11 @@ import config from "./config";
 import queryString from 'query-string';
 
 class Proxy {
+  constructor(parameters = {} , params = {}){
+    this.parameters = parameters;
+    this.params = params;
+  }
+
   submit(requestType, url, data = null, params = null) {
     return new Promise((resolve, reject) => {
       axios[requestType](url, data)
@@ -20,7 +25,7 @@ class Proxy {
     let params = queryString.stringify({
       ...payload.params
     });
-    endpoint = payload.params ? (endpoint += `/${params}`) : endpoint;
+    endpoint = payload.params ? (endpoint += `&${params}`) : endpoint; 
     return this.submit("get", `${endpoint}`);
   }
 }
