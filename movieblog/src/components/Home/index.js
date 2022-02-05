@@ -2,14 +2,18 @@ import React, { useEffect } from "react";
 import Trend from "./TrendMovie/Trend";
 import { useDispatch, useSelector, connect } from "react-redux";
 import { getMovies, getTrendMovie } from "../../redux/actions/actions";
+import SliderContainer from "./SliderContainer/SliderContainer";
+import Footer from "../UI/footer";
 
 const Home = () => {
-  const movies = useSelector((state) => state.data.movies);
+  const movies = useSelector((state) => state.movies.data);
+  const series = useSelector((state) => state.series.data);
   const movie = useSelector((state) => state.movie);
   const dispatch = useDispatch();
 
   useEffect(() => {
     _getMovies();
+    _getSeries();
   }, []);
 
   useEffect(() => {
@@ -22,7 +26,15 @@ const Home = () => {
     dispatch(
       getMovies(
         { key: "movie/popular", params: { language: "tr-TR" } },
-        "GET_POPULAR"
+        "GET_POPULAR_MOVIES"
+      )
+    );
+  };
+  const _getSeries = () => {
+    dispatch(
+      getMovies(
+        { key: "tv/popular", params: { language: "tr-TR" } },
+        "GET_POPULAR_SERIES"
       )
     );
   };
@@ -41,8 +53,9 @@ const Home = () => {
   return (
     <>
       <Trend movie={movie} />
-      <div style={{height: 750, background: "black"}}>
-
+      <div>
+        <SliderContainer title="Trend Filmler" data={movies} />
+        <SliderContainer title="Trend Diziler" data={series} />
       </div>
     </>
   );

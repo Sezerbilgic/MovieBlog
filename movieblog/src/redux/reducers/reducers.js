@@ -1,13 +1,21 @@
 import { ActionTypes } from "../actions/action-types";
 
 const initial_state = {
-  movies: [],
+  data: [],
 };
 
 export const moviesReducer = (state = initial_state, { type, payload }) => {
   switch (type) {
-    case ActionTypes.GET_POPULAR:
-      return { ...state, movies: payload };
+    case ActionTypes.GET_POPULAR_MOVIES:
+      return { ...state, data: payload };
+    default:
+      return state;
+  }
+};
+export const seriesReducer = (state = initial_state, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.GET_POPULAR_SERIES:
+      return { ...state, data: payload };
     default:
       return state;
   }
