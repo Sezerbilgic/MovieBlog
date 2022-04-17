@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import config from "../../../apiConfig/config";
 import Button from "../../UI/button";
+import { useHistory } from "react-router-dom";
 
 const Trend = ({ movie }) => {
   const [card,setCard] = useState(false);
+  let history = useHistory();
   const removeMovieCard = () => {
     if(window.innerWidth < 1200){
       setCard(true);
@@ -12,6 +14,10 @@ const Trend = ({ movie }) => {
     }
   }
   window.addEventListener("resize",removeMovieCard);
+
+  const handleClick = () => {
+    history.push("/detail");
+  }
 
   return (
     <div
@@ -24,7 +30,7 @@ const Trend = ({ movie }) => {
         <div className="movie-info">
           <h2>{movie?.title}</h2>
           <p>{movie?.overview}</p>
-          <Button className={"button"}/>
+          <Button className={"button"} onClick={handleClick} />
         </div>
         <div
           className={card ? "movie-card-wrap-responsive" : "movie-card-wrap"}
